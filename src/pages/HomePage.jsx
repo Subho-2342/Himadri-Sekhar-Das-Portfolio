@@ -342,7 +342,7 @@ const services = [
                 <div className="absolute top-10 -left-12 z-20 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 animate-float-soft">
                   <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent"><Award className="w-5 h-5" /></div>
                   <div>
-                    <p className="font-bold text-foreground leading-none">15+ Years</p>
+                    <p className="font-bold text-foreground leading-none">10+ Years</p>
                     <p className="text-xs text-muted-foreground">Experience</p>
                   </div>
                 </div>
