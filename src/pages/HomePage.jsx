@@ -60,7 +60,7 @@ const HomePage = () => {
 
   // Animated Counters
   const [patientsRef, patientsCount] = useAnimatedCounter(1000, 2500);
-  const [experienceRef, experienceCount] = useAnimatedCounter(15, 2000);
+  const [experienceRef, experienceCount] = useAnimatedCounter(10, 2000);
   const [satisfactionRef, satisfactionCount] = useAnimatedCounter(98, 2000);
   const [surgeriesRef, surgeriesCount] = useAnimatedCounter(1500, 2500);
 
