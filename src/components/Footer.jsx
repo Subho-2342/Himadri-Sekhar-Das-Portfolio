@@ -45,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-secondary text-secondary-foreground">
+    <footer className="bg-gradient-to-r from-slate-900 via-[#0F4C81] to-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
@@ -60,7 +60,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-secondary-foreground/80 leading-relaxed mb-6">
-              Providing compassionate and comprehensive gynecological and obstetric care with over 15 years of experience.
+              Committed to providing compassionate, evidence-based women's healthcare through advanced gynecological, obstetric, fertility, and laparoscopic treatment.
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -76,7 +76,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div className="pt-3">
             <span className="text-base font-semibold mb-6 block">Quick Links</span>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -92,7 +92,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="pt-3">
             <span className="text-base font-semibold mb-6 block">Services</span>
             <ul className="space-y-3">
               {services.map((service) => (
@@ -103,34 +103,64 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="pt-3">
             <span className="text-base font-semibold mb-6 block">Contact Information</span>
+
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-secondary-foreground/80">
-                  Medical Center, 123 Healthcare Avenue, Kolkata, West Bengal 700001
-                </span>
+                <MapPin className="w-5 h-5 text-primary mt-1" />
+
+                <div>
+                  <p className="font-semibold">
+                    Consultation Available At
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {[
+                      "Bardhaman",
+                      "Memari",
+                      "Jaugram",
+                      "Dhaniakhali",
+                      "Tarakeswar",
+                    ].map((city) => (
+                      <span
+                        key={city}
+                        className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs font-medium"
+                      >
+                        {city}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </li>
+
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+919876543210" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors duration-200">
-                  +91 98765 43210
+                <a
+                  href="tel:+91XXXXXXXXXX"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  +91 94747 03110
                 </a>
               </li>
+
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:dr.himadridas@healthcare.com" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors duration-200">
-                  dr.himadridas@healthcare.com
+                <a
+                  href="mailto:your@email.com"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
+                  your@email.com
                 </a>
               </li>
+
               <li className="flex items-center gap-3">
                 <MessageCircle className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
                   href={getWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors duration-200"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
                 >
                   {WHATSAPP_DISPLAY}
                 </a>
@@ -139,22 +169,44 @@ const Footer = () => {
           </div>
         </div>
 
+
         <div className="border-t border-secondary-foreground/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-secondary-foreground/70">
-              © {new Date().getFullYear()} Dr. Himadri Sekhar Das. All rights reserved.
-            </p>
-            <div className="flex items-center gap-6">
-              <a href="#" className="text-sm text-secondary-foreground/70 hover:text-primary transition-colors duration-200">
-                Privacy Policy
+              © {new Date().getFullYear()} Dr. Himadri Sekhar Das. All Rights Reserved.
+              <br className="md:hidden" />
+              <span className="hidden md:inline mx-2">|</span>
+
+              <a
+                href="https://webzyno.netlify.app/#home"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-cyan-400 hover:text-cyan-300 transition duration-300"
+              >
+                Website Designed & Developed by WebZyno
               </a>
-              <a href="#" className="text-sm text-secondary-foreground/70 hover:text-primary transition-colors duration-200">
+            </p>
+
+            <div className="flex items-center gap-6">
+              <a
+                href="#"
+                className="text-sm text-secondary-foreground/70 hover:text-primary transition-colors duration-200"
+              >
+                Privacy Policy |
+              </a>
+              <a
+                href="#"
+                className="text-sm text-secondary-foreground/70 hover:text-primary transition-colors duration-200"
+              >
                 Terms of Service
               </a>
             </div>
           </div>
         </div>
+
+        {/* THIS DIV WAS MISSING */}
       </div>
+
     </footer>
   );
 };

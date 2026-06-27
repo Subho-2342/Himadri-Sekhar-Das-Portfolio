@@ -22,7 +22,10 @@ import {
   Phone,
   Mail,
   Clock,
-  Calendar as CalendarIcon
+  Calendar as CalendarIcon,
+  Search,
+  Link,
+  Sparkles
 } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
@@ -33,10 +36,12 @@ import TestimonialCard from '@/components/TestimonialCard.jsx';
 import ScheduleCard from '@/components/ScheduleCard.jsx';
 import GalleryImage from '@/components/GalleryImage.jsx';
 import AppointmentForm from '@/components/AppointmentForm.jsx';
+import heroDoctor from "../assets/images/hero-doctor.png";
+import aboutDoctor from "../assets/images/about-doctor.png";
 
 const HomePage = () => {
-  
-  
+
+
   const { scrollY } = useScroll();
   const yHeroBg = useTransform(scrollY, [0, 1000], [0, 300]);
   const yHeroImg = useTransform(scrollY, [0, 1000], [0, 150]);
@@ -63,7 +68,7 @@ const HomePage = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
   const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
   const scrollNext = () => emblaApi && emblaApi.scrollNext();
-const services = [
+  const services = [
   {
     icon: Heart,
     title: 'High-Risk Pregnancy Care',
@@ -110,65 +115,91 @@ const services = [
     icon: Hospital,
     title: 'Gynecological Cancer & Prolapse Surgery',
     description: 'Management of cervical, endometrial, ovarian cancers, genital prolapse, and vault prolapse surgery.'
+  },
+
+  // NEW SERVICES
+
+  {
+    icon: Search,
+    title: 'Diagnostic & Therapeutic Hysteroscopy',
+    description: 'Advanced hysteroscopic procedures for accurate diagnosis and minimally invasive treatment of uterine abnormalities such as polyps, fibroids, adhesions, and abnormal bleeding.'
+  },
+
+  {
+    icon: Link,
+    title: 'Tubal Block Recanalization Surgery',
+    description: 'Specialized surgical procedures to restore blocked fallopian tubes, improving fertility and increasing the chances of natural conception.'
+  },
+
+  {
+    icon: Sparkles,
+    title: 'Cosmetic & Reconstructive Vaginoplasty',
+    description: 'Advanced vaginal reconstruction and tightening procedures to enhance pelvic support, function, and overall quality of life.'
+  },
+
+  {
+    icon: Shield,
+    title: 'Laparoscopic Sacrocolpopexy',
+    description: 'Minimally invasive surgical treatment for vaginal vault prolapse, providing durable pelvic support with faster recovery and minimal discomfort.'
   }
 ];
- const successStories = [
-  {
-    title: 'Primary Infertility Success',
-    challenge: 'Difficulty conceiving despite several years of marriage.',
-    approach: 'Comprehensive fertility evaluation, reproductive medicine consultation, and personalized treatment plan.',
-    outcome: 'Successful conception and healthy pregnancy achieved.'
-  },
+  const successStories = [
+    {
+      title: 'Primary Infertility Success',
+      challenge: 'Difficulty conceiving despite several years of marriage.',
+      approach: 'Comprehensive fertility evaluation, reproductive medicine consultation, and personalized treatment plan.',
+      outcome: 'Successful conception and healthy pregnancy achieved.'
+    },
 
-  {
-    title: 'Secondary Infertility Management',
-    challenge: 'Unable to conceive after a previous successful pregnancy.',
-    approach: 'Advanced fertility assessment and targeted reproductive care.',
-    outcome: 'Successful pregnancy following specialized treatment.'
-  },
+    {
+      title: 'Secondary Infertility Management',
+      challenge: 'Unable to conceive after a previous successful pregnancy.',
+      approach: 'Advanced fertility assessment and targeted reproductive care.',
+      outcome: 'Successful pregnancy following specialized treatment.'
+    },
 
-  {
-    title: 'Recurrent Pregnancy Loss',
-    challenge: 'Multiple previous miscarriages affecting maternal confidence.',
-    approach: 'Detailed investigation and individualized pregnancy support plan.',
-    outcome: 'Successful full-term pregnancy and healthy delivery.'
-  },
+    {
+      title: 'Recurrent Pregnancy Loss',
+      challenge: 'Multiple previous miscarriages affecting maternal confidence.',
+      approach: 'Detailed investigation and individualized pregnancy support plan.',
+      outcome: 'Successful full-term pregnancy and healthy delivery.'
+    },
 
-  {
-    title: 'High-Risk Pregnancy Care',
-    challenge: 'Pregnancy complicated by hypertension and diabetes.',
-    approach: 'Close monitoring, medication management, and specialist obstetric supervision.',
-    outcome: 'Safe delivery of a healthy baby.'
-  },
+    {
+      title: 'High-Risk Pregnancy Care',
+      challenge: 'Pregnancy complicated by hypertension and diabetes.',
+      approach: 'Close monitoring, medication management, and specialist obstetric supervision.',
+      outcome: 'Safe delivery of a healthy baby.'
+    },
 
-  {
-    title: 'Twin Pregnancy Management',
-    challenge: 'High-risk twin pregnancy requiring continuous monitoring.',
-    approach: 'Regular fetal surveillance and customized maternal care.',
-    outcome: 'Successful delivery of healthy twins.'
-  },
+    {
+      title: 'Twin Pregnancy Management',
+      challenge: 'High-risk twin pregnancy requiring continuous monitoring.',
+      approach: 'Regular fetal surveillance and customized maternal care.',
+      outcome: 'Successful delivery of healthy twins.'
+    },
 
-  {
-    title: 'Advanced Laparoscopic Surgery',
-    challenge: 'Large uterine fibroids causing severe symptoms and fertility concerns.',
-    approach: 'Minimally invasive laparoscopic surgical management.',
-    outcome: 'Successful recovery with significant improvement in quality of life.'
-  },
+    {
+      title: 'Advanced Laparoscopic Surgery',
+      challenge: 'Large uterine fibroids causing severe symptoms and fertility concerns.',
+      approach: 'Minimally invasive laparoscopic surgical management.',
+      outcome: 'Successful recovery with significant improvement in quality of life.'
+    },
 
-  {
-    title: 'PCOD & Fertility Restoration',
-    challenge: 'Irregular menstrual cycles and difficulty conceiving due to PCOD.',
-    approach: 'Personalized hormonal management, lifestyle modification, and fertility-focused treatment.',
-    outcome: 'Regular ovulation restored and successful conception achieved.'
-  },
+    {
+      title: 'PCOD & Fertility Restoration',
+      challenge: 'Irregular menstrual cycles and difficulty conceiving due to PCOD.',
+      approach: 'Personalized hormonal management, lifestyle modification, and fertility-focused treatment.',
+      outcome: 'Regular ovulation restored and successful conception achieved.'
+    },
 
-  {
-    title: 'Endometriosis Treatment Success',
-    challenge: 'Chronic pelvic pain and fertility concerns caused by endometriosis.',
-    approach: 'Advanced laparoscopic management followed by individualized follow-up care.',
-    outcome: 'Significant symptom relief and improved reproductive health.'
-  }
-];
+    {
+      title: 'Endometriosis Treatment Success',
+      challenge: 'Chronic pelvic pain and fertility concerns caused by endometriosis.',
+      approach: 'Advanced laparoscopic management followed by individualized follow-up care.',
+      outcome: 'Significant symptom relief and improved reproductive health.'
+    }
+  ];
 
   const testimonials = [
     { rating: 5, text: 'Dr. Das provided exceptional care during my high-risk pregnancy. Her calm demeanor and expertise kept me reassured.', patientIdentifier: 'A.K.', treatmentType: 'Obstetric Care' },
@@ -199,65 +230,73 @@ const services = [
   ];
 
   const chambers = [
-  {
-    name: "Sun Hospital Unit-2",
-    location: "Khosbagan, Bardhaman",
-    days: "Mon, Wed, Fri",
-    time: "5:00 PM - 8:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f8490061d50115%3A0x5d566cd4b94789a4!2sThe%20Sun%20Hospital%20(Unit%20II)%2C%2043%2C%20Ramkrishna%20Road%2C%20Shyamlal%20Colony%2C%20Khosbagan%2C%20Bardhaman%2C%20West%20Bengal%20713103!3m2!1d23.2448677!2d87.86161729999999!5e0!3m2!1sen!2sin!4v1782487089659!5m2!1sen!2sin"
-  },
+    {
+      name: "Sun Hospital Unit-2",
+      location: "Khosbagan, Bardhaman",
+      days: "Mon, Wed, Fri",
+      time: "5:00 PM - 8:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f8490061d50115%3A0x5d566cd4b94789a4!2sThe%20Sun%20Hospital%20(Unit%20II)%2C%2043%2C%20Ramkrishna%20Road%2C%20Shyamlal%20Colony%2C%20Khosbagan%2C%20Bardhaman%2C%20West%20Bengal%20713103!3m2!1d23.2448677!2d87.86161729999999!5e0!3m2!1sen!2sin!4v1782487089659!5m2!1sen!2sin"
+    },
 
-  {
-    name: "Jaugram Siddheswari Medical",
-    location: "Hamid Market, Jaugram",
-    days: "Tuesday",
-    time: "10:00 AM - 1:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f85df949d691d5%3A0x1db6be76be15df1c!2sSIDDHESWARI%20MEDICAL%20HALL%2C%20Railway%20Station%2C%20Station%20Road%2C%20Purba%2C%20Jaugram%2C%20West%20Bengal%20713166!3m2!1d23.0811279!2d88.0804071!5e0!3m2!1sen!2sin!4v1782402917247!5m2!1sen!2sin"
-  },
+    {
+      name: "Jaugram Siddheswari Medical",
+      location: "Hamid Market, Jaugram",
+      days: "Tuesday",
+      time: "10:00 AM - 1:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f85df949d691d5%3A0x1db6be76be15df1c!2sSIDDHESWARI%20MEDICAL%20HALL%2C%20Railway%20Station%2C%20Station%20Road%2C%20Purba%2C%20Jaugram%2C%20West%20Bengal%20713166!3m2!1d23.0811279!2d88.0804071!5e0!3m2!1sen!2sin!4v1782402917247!5m2!1sen!2sin"
+    },
 
-  {
-    name: "Memari Jagaddhatri Medical",
-    location: "Near Check Post, Memari",
-    days: "Thursday",
-    time: "10:00 AM - 1:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f9b1496d8aa9e1%3A0xc6d71f752ab0820a!2sJagadhatri%20Medical%20Hall%2C%20GX4V%2BP8P%2C%20Nigan%20-Jabagram%20Rd%2C%20Negun%2C%20West%20Bengal%20713143!3m2!1d23.5068008!2d87.9933154!5e0!3m2!1sen!2sin!4v1782403046032!5m2!1sen!2sin"
-  },
+    {
+      name: "Memari Jagaddhatri Medical",
+      location: "Near Check Post, Memari",
+      days: "Thursday",
+      time: "10:00 AM - 1:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f9b1496d8aa9e1%3A0xc6d71f752ab0820a!2sJagadhatri%20Medical%20Hall%2C%20GX4V%2BP8P%2C%20Nigan%20-Jabagram%20Rd%2C%20Negun%2C%20West%20Bengal%20713143!3m2!1d23.5068008!2d87.9933154!5e0!3m2!1sen!2sin!4v1782403046032!5m2!1sen!2sin"
+    },
 
-  {
-    name: "Dhaniakhali Gouri Pharmacy",
-    location: "Cinematala, Dhaniakhali",
-    days: "Saturday",
-    time: "10:00 AM - 1:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f860cae6c68d77%3A0xa0ee3ea2f2b03eee!2sGouri%20Pharmacy%20Dhaniakhali%20Cinematala%2C%20X37R%2B9HF%2C%20Cinema%20Tala%20-%20Kalikapur%20Rd%2C%20Somaspur%2C%20Dhaniakhali%2C%20West%20Bengal%20712302!3m2!1d22.963424399999997!2d88.09143929999999!5e0!3m2!1sen!2sin!4v1782403121545!5m2!1sen!2sin"
-  },
+    {
+      name: "Dhaniakhali Gouri Pharmacy",
+      location: "Cinematala, Dhaniakhali",
+      days: "Saturday",
+      time: "10:00 AM - 1:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f860cae6c68d77%3A0xa0ee3ea2f2b03eee!2sGouri%20Pharmacy%20Dhaniakhali%20Cinematala%2C%20X37R%2B9HF%2C%20Cinema%20Tala%20-%20Kalikapur%20Rd%2C%20Somaspur%2C%20Dhaniakhali%2C%20West%20Bengal%20712302!3m2!1d22.963424399999997!2d88.09143929999999!5e0!3m2!1sen!2sin!4v1782403121545!5m2!1sen!2sin"
+    },
+    {
+      name: "Dhaniakhali Lions Club",
+      location: "X484+M37, Inathnagar, Chapabere, Dhaniakhali",
+      days: "Saturday",
+      time: "10:00 AM - 1:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f860bf5244c019%3A0x687a88a49584e9dd!2sLion&#39;s%20Club%20Hospital%2C%20X484%2BM37%2C%20Inathnagar%2C%20Chapabere%2C%20Dhaniakhali%2C%20West%20Bengal%20712302!3m2!1d22.966662499999998!2d88.1051719!5e0!3m2!1sen!2sin!4v1782541636284!5m2!1sen!2sin"
+    },
 
-  {
-    name: "Dashghara Adyama Medical",
-    location: "Dashghara",
-    days: "Sunday",
-    time: "10:00 AM - 1:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f86749947c0095%3A0x8dea5e9f40856f62!2sAddyama%20Medical%20Stores%2C%20Memari-Tarkeswar%20Rd%2C%20Dasghara%2C%20Srikrishnapur%2C%20West%20Bengal%20712402!3m2!1d22.9702415!2d88.0311705!5e0!3m2!1sen!2sin!4v1782403180978!5m2!1sen!2sin"
-  },
 
-  {
-    name: "Dreamland Nursing Home",
-    location: "Bardhaman",
-    days: "Tuesday & Friday",
-    time: "4:00 PM - 7:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f849e179f4557b%3A0x458e1f4f7d55af58!2sDreamland%20Nursing%20Home%20-%20Multispeciality%20Healthcare%2C%20Nawabhat%20Rd%20Indraprostho%2C%20Baburbag%2C%20Bardhaman%2C%20West%20Bengal%20713104!3m2!1d23.253947!2d87.8576695!5e0!3m2!1sen!2sin!4v1782403240110!5m2!1sen!2sin"
-  },
+    {
+      name: "Dashghara Adyama Medical",
+      location: "Dashghara",
+      days: "Sunday",
+      time: "10:00 AM - 1:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f86749947c0095%3A0x8dea5e9f40856f62!2sAddyama%20Medical%20Stores%2C%20Memari-Tarkeswar%20Rd%2C%20Dasghara%2C%20Srikrishnapur%2C%20West%20Bengal%20712402!3m2!1d22.9702415!2d88.0311705!5e0!3m2!1sen!2sin!4v1782403180978!5m2!1sen!2sin"
+    },
 
-  {
-    name: "Dr. B. Das Memorial NH",
-    location: "Tarakeswar",
-    days: "Sunday",
-    time: "5:00 PM - 8:00 PM",
-    map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f86f5359688709%3A0xc2c1755e23742efe!2sB.Das%20Memorial%20Medical%20Complex%2C%20V2R4%2BXm3%2C%20Tarakeswar%20Rd%2C%20Chandur%2C%20West%20Bengal%20712410!3m2!1d22.8924375!2d88.0066875!5e0!3m2!1sen!2sin!4v1782403302022!5m2!1sen!2sin"
-  }
-  
-];
- const [selectedMap, setSelectedMap] = useState(chambers[0].map);
- const [selectedIndex, setSelectedIndex] = useState(0);
+    {
+      name: "Dreamland Nursing Home",
+      location: "Bardhaman",
+      days: "Tuesday & Friday",
+      time: "4:00 PM - 7:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f849e179f4557b%3A0x458e1f4f7d55af58!2sDreamland%20Nursing%20Home%20-%20Multispeciality%20Healthcare%2C%20Nawabhat%20Rd%20Indraprostho%2C%20Baburbag%2C%20Bardhaman%2C%20West%20Bengal%20713104!3m2!1d23.253947!2d87.8576695!5e0!3m2!1sen!2sin!4v1782403240110!5m2!1sen!2sin"
+    },
+
+    {
+      name: "Dr. B. Das Memorial NH",
+      location: "Tarakeswar",
+      days: "Sunday",
+      time: "5:00 PM - 8:00 PM",
+      map: "https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d14687.776281359664!2d88.11937525!3d23.0258257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x39f86f5359688709%3A0xc2c1755e23742efe!2sB.Das%20Memorial%20Medical%20Complex%2C%20V2R4%2BXm3%2C%20Tarakeswar%20Rd%2C%20Chandur%2C%20West%20Bengal%20712410!3m2!1d22.8924375!2d88.0066875!5e0!3m2!1sen!2sin!4v1782403302022!5m2!1sen!2sin"
+    }
+
+  ];
+  const [selectedMap, setSelectedMap] = useState(chambers[0].map);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <>
@@ -266,7 +305,7 @@ const services = [
       </Helmet>
 
       <div className="bg-background min-h-screen">
-        
+
         {/* HERO SECTION */}
         <section id="home" ref={heroRef} className="relative min-h-[100dvh] flex items-center overflow-hidden pt-20">
           {/* Animated Background */}
@@ -284,7 +323,7 @@ const services = [
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-20">
-            
+
             {/* Left/Right Text Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -299,19 +338,19 @@ const services = [
                 </span>
                 Accepting New Patients
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
                 Empowering <span className="text-gradient">Women's</span> Health
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-foreground/80 font-serif mb-6 border-l-4 border-primary pl-4">
                 Premium Gynecological & Obstetric Care by Dr. Himadri Sekhar Das
               </p>
-              
+
               <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-[500px]">
                 Experience compassionate, evidence-based care tailored to every stage of your life. Specializing in high-risk pregnancies, advanced surgeries, and reproductive wellness.
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="rounded-full shadow-[0_0_20px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_30px_hsl(var(--primary)/0.5)] transition-all duration-300 h-14 px-8 text-lg" onClick={() => document.getElementById('appointment').scrollIntoView()}>
                   Book Consultation
@@ -333,11 +372,11 @@ const services = [
               <div className="relative w-full max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full blur-3xl opacity-20 animate-glow" />
                 <img
-                  src="https://images.unsplash.com/photo-1690544253847-6f24926a627c?auto=format&fit=crop&q=80&w=800"
+                  src={heroDoctor}
                   alt="Dr. Himadri Sekhar Das"
                   className="relative z-10 w-full h-auto rounded-[2rem] shadow-2xl object-cover border-4 border-background aspect-[3/4]"
                 />
-                
+
                 {/* Floating Badges */}
                 <div className="absolute top-10 -left-12 z-20 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 animate-float-soft">
                   <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-accent"><Award className="w-5 h-5" /></div>
@@ -346,7 +385,7 @@ const services = [
                     <p className="text-xs text-muted-foreground">Experience</p>
                   </div>
                 </div>
-                
+
                 <div className="absolute bottom-20 -right-8 z-20 glass-card px-4 py-3 rounded-2xl flex items-center gap-3 animate-float-medium">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary"><Users className="w-5 h-5" /></div>
                   <div>
@@ -371,81 +410,81 @@ const services = [
             >
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-[2rem] blur-lg group-hover:blur-xl transition-all duration-500 opacity-50" />
-                <img 
-                  src="https://images.unsplash.com/photo-1659353885824-1199aeeebfc6?auto=format&fit=crop&q=80&w=800" 
-                  alt="Dr. Das in clinic" 
+                <img
+                  src={aboutDoctor}
+                  alt="Dr. Himadri Sekhar Das"
                   className="relative rounded-2xl shadow-xl w-full object-cover aspect-[4/5] border-2 border-background"
                 />
               </div>
-              
+
               <div>
                 <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">About The Doctor</h2>
                 <h3 className="text-4xl font-bold text-foreground mb-6 font-serif">Commitment to Excellence in Women's Healthcare</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6">
-                 Dr. Himadri Sekhar Das is a distinguished Consultant Gynaecologist, Obstetrician, Paediatrician, Laparoscopic Surgeon, and Fertility Specialist dedicated to delivering exceptional healthcare with compassion, precision, and professionalism. Backed by extensive clinical experience and advanced training in reproductive medicine, fertility treatment, and minimally invasive surgery, he is committed to helping patients achieve better health outcomes through personalized, evidence-based medical care.
+                  Dr. Himadri Sekhar Das is a distinguished Consultant Gynaecologist, Obstetrician, Paediatrician, Laparoscopic Surgeon, and Fertility Specialist dedicated to delivering exceptional healthcare with compassion, precision, and professionalism. Backed by extensive clinical experience and advanced training in reproductive medicine, fertility treatment, and minimally invasive surgery, he is committed to helping patients achieve better health outcomes through personalized, evidence-based medical care.
                 </p>
-                
-               {/* Timeline / Milestones */}
-<div className="space-y-6 mt-10">
-  {[
-    {
-      year: 'M.B.B.S.',
-      title: 'Bachelor of Medicine & Bachelor of Surgery',
-      desc: 'Completed foundational medical education and comprehensive clinical training.'
-    },
-    {
-      year: 'D.C.H.',
-      title: 'Diploma in Child Health',
-      desc: 'Advanced training in paediatric healthcare and child wellness.'
-    },
-    {
-      year: 'M.S.',
-      title: 'Master of Surgery in Gynaecology & Obstetrics',
-      desc: 'Specialized surgical training in women’s healthcare and obstetrics.'
-    },
-    {
-      year: 'DNB',
-      title: 'Diplomate of National Board',
-      desc: 'National Board Certification in Obstetrics & Gynaecology.'
-    },
-    {
-      year: 'MRCOG',
-      title: 'Royal College of Obstetricians & Gynaecologists (UK)',
-      desc: 'International qualification demonstrating advanced professional competence.'
-    },
-    {
-      year: 'FMAS',
-      title: 'Fellowship in Minimal Access Surgery',
-      desc: 'Specialized expertise in laparoscopic and minimally invasive surgical procedures.'
-    },
-    {
-      year: 'ART',
-      title: 'Diploma in Reproductive Medicine & Assisted Reproductive Technology',
-      desc: 'Advanced training in fertility treatment, reproductive medicine, and ART services.'
-    }
-  ].map((item, idx, arr) => (
-    <div key={idx} className="flex gap-4 group cursor-default">
-      <div className="flex flex-col items-center">
-        <div className="w-12 h-12 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center text-primary font-bold text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-          {item.year}
-        </div>
 
-        {idx !== arr.length - 1 && (
-          <div className="w-px h-full bg-border mt-2" />
-        )}
-      </div>
+                {/* Timeline / Milestones */}
+                <div className="space-y-6 mt-10">
+                  {[
+                    {
+                      year: 'M.B.B.S.',
+                      title: 'Bachelor of Medicine & Bachelor of Surgery',
+                      desc: 'Completed foundational medical education and comprehensive clinical training.'
+                    },
+                    {
+                      year: 'D.C.H.',
+                      title: 'Diploma in Child Health',
+                      desc: 'Advanced training in paediatric healthcare and child wellness.'
+                    },
+                    {
+                      year: 'M.S.',
+                      title: 'Master of Surgery in Gynaecology & Obstetrics',
+                      desc: 'Specialized surgical training in women’s healthcare and obstetrics.'
+                    },
+                    {
+                      year: 'DNB',
+                      title: 'Diplomate of National Board',
+                      desc: 'National Board Certification in Obstetrics & Gynaecology.'
+                    },
+                    {
+                      year: 'MRCOG',
+                      title: 'Royal College of Obstetricians & Gynaecologists (UK)',
+                      desc: 'International qualification demonstrating advanced professional competence.'
+                    },
+                    {
+                      year: 'FMAS',
+                      title: 'Fellowship in Minimal Access Surgery',
+                      desc: 'Specialized expertise in laparoscopic and minimally invasive surgical procedures.'
+                    },
+                    {
+                      year: 'ART',
+                      title: 'Diploma in Reproductive Medicine & Assisted Reproductive Technology',
+                      desc: 'Advanced training in fertility treatment, reproductive medicine, and ART services.'
+                    }
+                  ].map((item, idx, arr) => (
+                    <div key={idx} className="flex gap-4 group cursor-default">
+                      <div className="flex flex-col items-center">
+                        <div className="w-12 h-12 rounded-full bg-background border-2 border-primary/20 flex items-center justify-center text-primary font-bold text-xs group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                          {item.year}
+                        </div>
 
-      <div className="pb-6 pt-2">
-        <h4 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-          {item.title}
-        </h4>
-        <p className="text-sm text-muted-foreground">
-          {item.desc}
-        </p>
-      </div>
-    </div>
-  ))}
-</div>
+                        {idx !== arr.length - 1 && (
+                          <div className="w-px h-full bg-border mt-2" />
+                        )}
+                      </div>
+
+                      <div className="pb-6 pt-2">
+                        <h4 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="text-sm text-muted-foreground">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -566,7 +605,7 @@ const services = [
         <section id="appointment" ref={appointmentRef} className="py-24 relative">
           {/* Decorative shapes */}
           <div className="absolute top-0 right-0 w-1/3 h-full bg-muted/30 rounded-bl-[100px] z-0 hidden lg:block" />
-          
+
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
               <motion.div
@@ -608,140 +647,139 @@ const services = [
         </section>
 
         {/* CHAMBER INFORMATION */}
-<section id="chamber" ref={chamberRef} className="py-24 bg-muted/30">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="chamber" ref={chamberRef} className="py-24 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={chamberVisible ? { opacity: 1, y: 0 } : {}}
-      className="text-center max-w-3xl mx-auto mb-16"
-    >
-      <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">
-        Visit Locations
-      </h2>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={chamberVisible ? { opacity: 1, y: 0 } : {}}
+              className="text-center max-w-3xl mx-auto mb-16"
+            >
+              <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">
+                Visit Locations
+              </h2>
 
-      <h3 className="text-4xl md:text-5xl font-bold text-foreground font-serif">
-        Chamber & Consultation Information
-      </h3>
+              <h3 className="text-4xl md:text-5xl font-bold text-foreground font-serif">
+                Chamber & Consultation Information
+              </h3>
 
-      <p className="mt-4 text-muted-foreground">
-        Available for consultation across multiple healthcare centers in Bardhaman and surrounding regions.
-      </p>
-    </motion.div>
+              <p className="mt-4 text-muted-foreground">
+                Available for consultation across multiple healthcare centers in Bardhaman and surrounding regions.
+              </p>
+            </motion.div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-      {/* LEFT SIDE */}
-      <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+              {/* LEFT SIDE */}
+              <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
 
-        {chambers.map((chamber, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            animate={chamberVisible ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: index * 0.08 }}
-            onClick={() => {
-              setSelectedMap(chamber.map);
-              setSelectedIndex(index);
-            }}
-            className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
-              selectedIndex === index
-                ? "border-2 border-primary shadow-lg bg-primary/5"
-                : "bg-card border border-border/50 hover:border-primary hover:shadow-md"
-            }`}
-          >
-            <div className="flex gap-4">
+                {chambers.map((chamber, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={chamberVisible ? { opacity: 1, x: 0 } : {}}
+                    transition={{ delay: index * 0.08 }}
+                    onClick={() => {
+                      setSelectedMap(chamber.map);
+                      setSelectedIndex(index);
+                    }}
+                    className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${selectedIndex === index
+                      ? "border-2 border-primary shadow-lg bg-primary/5"
+                      : "bg-card border border-border/50 hover:border-primary hover:shadow-md"
+                      }`}
+                  >
+                    <div className="flex gap-4">
 
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
-                <MapPin className="w-6 h-6" />
-              </div>
+                      <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary shrink-0">
+                        <MapPin className="w-6 h-6" />
+                      </div>
 
-              <div>
-                <h4 className="font-bold text-lg text-foreground">
-                  {chamber.name}
-                </h4>
+                      <div>
+                        <h4 className="font-bold text-lg text-foreground">
+                          {chamber.name}
+                        </h4>
 
-                <p className="text-muted-foreground">
-                  {chamber.location}
-                </p>
+                        <p className="text-muted-foreground">
+                          {chamber.location}
+                        </p>
 
-                <div className="mt-3 text-sm space-y-1">
-                  <p><strong>Days:</strong> {chamber.days}</p>
-                  <p><strong>Time:</strong> {chamber.time}</p>
-                  <p><strong>Appointment:</strong> +91 93397 30689</p>
+                        <div className="mt-3 text-sm space-y-1">
+                          <p><strong>Days:</strong> {chamber.days}</p>
+                          <p><strong>Time:</strong> {chamber.time}</p>
+                          <p><strong>Appointment:</strong> +91 93397 30689</p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </motion.div>
+                ))}
+
+                {/* CONTACT CARD */}
+                <div className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-lg">
+                  <div className="flex items-center gap-4">
+
+                    <Phone className="w-8 h-8" />
+
+                    <div>
+                      <h4 className="font-bold text-lg">
+                        Appointment & WhatsApp
+                      </h4>
+
+                      <p>+91 93397 30689</p>
+
+                      <p className="text-sm opacity-80">
+                        Call / WhatsApp Available
+                      </p>
+                    </div>
+
+                  </div>
                 </div>
+
               </div>
+
+              {/* GOOGLE MAP */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={chamberVisible ? { opacity: 1, x: 0 } : {}}
+                className="rounded-2xl overflow-hidden shadow-lg border border-border/50 h-[600px]"
+              >
+                <iframe
+                  src={selectedMap}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Clinic Location"
+                />
+              </motion.div>
 
             </div>
-          </motion.div>
-        ))}
 
-        {/* CONTACT CARD */}
-        <div className="bg-primary text-primary-foreground p-6 rounded-2xl shadow-lg">
-          <div className="flex items-center gap-4">
-
-            <Phone className="w-8 h-8" />
-
-            <div>
-              <h4 className="font-bold text-lg">
-                Appointment & WhatsApp
+            {/* ✅ SCHEDULE SECTION (ADDED HERE PROPERLY) */}
+            <div className="mt-12">
+              <h4 className="text-xl font-bold text-foreground font-serif mb-6 flex items-center gap-2">
+                <CalendarIcon className="w-6 h-6 text-primary" />
+                Consultation Schedule
               </h4>
 
-              <p>+91 93397 30689</p>
-
-              <p className="text-sm opacity-80">
-                Call / WhatsApp Available
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {schedule.map((day, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={chamberVisible ? { opacity: 1, y: 0 } : {}}
+                    transition={{ delay: 0.1 * index }}
+                  >
+                    <ScheduleCard {...day} />
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
           </div>
-        </div>
-
-      </div>
-
-      {/* GOOGLE MAP */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={chamberVisible ? { opacity: 1, x: 0 } : {}}
-        className="rounded-2xl overflow-hidden shadow-lg border border-border/50 h-[600px]"
-      >
-        <iframe
-          src={selectedMap}
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Clinic Location"
-        />
-      </motion.div>
-
-    </div>
-
-    {/* ✅ SCHEDULE SECTION (ADDED HERE PROPERLY) */}
-    <div className="mt-12">
-      <h4 className="text-xl font-bold text-foreground font-serif mb-6 flex items-center gap-2">
-        <CalendarIcon className="w-6 h-6 text-primary" />
-        Consultation Schedule
-      </h4>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {schedule.map((day, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            animate={chamberVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.1 * index }}
-          >
-            <ScheduleCard {...day} />
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-  </div>
-</section>
+        </section>
 
         {/* FAQ SECTION */}
         <section id="faq" ref={faqRef} className="py-24">
