@@ -491,31 +491,30 @@ const HomePage = () => {
         </section>
 
         {/* SERVICES SECTION */}
-        <section id="services" ref={servicesRef} className="py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={servicesVisible ? { opacity: 1, y: 0 } : {}}
-              className="text-center max-w-3xl mx-auto mb-16"
-            >
-              <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">Areas of Expertise</h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-foreground font-serif">Comprehensive Services</h3>
-            </motion.div>
+        {/* SERVICES SECTION */}
+<section id="services" ref={servicesRef} className="py-24">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={servicesVisible ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                >
-                  <ServiceCard {...service} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="text-center max-w-3xl mx-auto mb-16">
+      <h2 className="text-sm font-bold text-primary uppercase tracking-widest mb-2">
+        Areas of Expertise
+      </h2>
+
+      <h3 className="text-4xl md:text-5xl font-bold text-foreground font-serif">
+        Comprehensive Services
+      </h3>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {services.map((service, index) => (
+        <div key={index}>
+          <ServiceCard {...service} />
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
 
         {/* SUCCESS STORIES (FLIP CARDS) */}
         <section id="success-stories" ref={successRef} className="py-24 bg-gradient-to-b from-muted/30 to-background">
