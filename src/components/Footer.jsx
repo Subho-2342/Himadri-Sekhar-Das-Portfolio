@@ -183,7 +183,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="font-semibold text-cyan-400 hover:text-cyan-300 transition duration-300"
               >
-                Website Designed & Developed by WebZyno
+                
               </a>
             </p>
 
